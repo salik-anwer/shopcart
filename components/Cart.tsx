@@ -4,9 +4,11 @@ import { useAppContext } from '@/hooks/useAppContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import Confetti from 'react-confetti'
 
 const Cart = () => {
   const { calculateTotalPrice, cart, products, removeProductFromCart, addProductToCart, clearCart } = useAppContext();
+  const [explosionVisible, setExplosionVisible] = useState<boolean>(false);
 
   if(!cart?.length) {
     return (
@@ -14,8 +16,16 @@ const Cart = () => {
     );
   }
 
+  const handleCheckOut = () => {
+    setExplosionVisible(true);
+    setTimeout(() => {
+      setExplosionVisible(false);
+    }, 3000);
+  };
+
   return (
     <div className="container mx-auto p-4 flex flex-col lg:flex-row">
+      {explosionVisible && <Confetti width={window.innerWidth-100} height={window.innerHeight-150} numberOfPieces={333}/>}
       <div className="w-full lg:w-2/3 mb-6">
         <h2 className="text-3xl font-bold mb-4">Your Cart</h2>
           <div className="flex justify-center">
@@ -79,7 +89,7 @@ const Cart = () => {
                 <p className="text-base mb-2">Subtotal: ${calculateTotalPrice().toFixed(2)}</p>
                 <p className="text-lg font-semibold mb-4">Total: ${calculateTotalPrice().toFixed(2)}</p>
                 <div className="flex justify-between">
-                <button className="primary-button click-transition">Checkout</button>
+                <button className="primary-button click-transition" onClick={() => handleCheckOut()}>Checkout</button>
                 <button className="secondary-button click-transition" onClick={() => clearCart()}>
                     Clear Cart
                 </button>
