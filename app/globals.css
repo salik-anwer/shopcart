@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.primary-button {
+    @apply text-[10px] md:text-sm px-4 py-2 min-[400px]:h-8 md:h-10 text-white font-bold rounded bg-[#FFB100] hover:bg-[#FE9C00] border-2 border-[#FEA900] hover:border-[#FE9000];
+}
+
+.secondary-button {
+    @apply text-[10px] md:text-sm px-4 py-2 min-[400px]:h-8 md:h-10 text-white font-bold rounded bg-[#FE7C00] hover:bg-[#FD6500] border-2 border-[#FD7100] hover:border-[#FD5C00];
+}
+
+.round-button {
+    @apply px-2 py-2 h-8 text-black rounded-full border-2 border-gray-100;
+}
+
+.click-transition {
+    @apply transition transform hover:scale-105 active:scale-95 transition-transform duration-200 ease-in-out;
+}
