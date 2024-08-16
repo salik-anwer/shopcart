@@ -1,2 +1,2 @@
 # shopcart
-A simple shopping list and shipping cart in NextJS
+A simple shopping list and shopping cart with wishlist in NextJS
