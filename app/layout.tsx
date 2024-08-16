@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { QueryProvider } from "@/providers/QueryProvider";
 import Footer from "@/components/Footer";
+import Head from "next/head";
 
 const poppins = Poppins({ subsets: ["latin"], weight:['100', '400', '700'] });
 
@@ -19,6 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0"/>
+      </Head>
       <body className={poppins.className}>
         <QueryProvider>
           <div className="flex flex-col min-h-screen bg-gray-50">
