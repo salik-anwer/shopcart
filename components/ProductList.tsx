@@ -1,13 +1,10 @@
 'use client'
 import React from 'react';
 import { useAppContext } from '@/hooks/useAppContext';
-import { Loader } from './Loader';;
 import { MainCard } from './MainCard';
 
 const ProductList = () => {
-  const { loading, products } = useAppContext();
-
-  if (loading) return <Loader/>;
+  const { products } = useAppContext();
 
   return (
     <div className="container mx-auto p-4">

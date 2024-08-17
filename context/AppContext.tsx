@@ -1,11 +1,11 @@
 import { createContext, useState, ReactNode, useEffect } from 'react';
 import { Product } from '@/hooks/useFetchProducts';
 
-interface WishListItem {
+export interface WishListItem {
   id: number;
 }
 
-interface CartItem extends WishListItem{
+export interface CartItem extends WishListItem{
   quantity: number;
 }
 

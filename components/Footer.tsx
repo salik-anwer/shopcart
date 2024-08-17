@@ -6,7 +6,6 @@ const Footer = () => {
     <footer className="bg-custom-gradient text-gray-200 py-6">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          {/* Branding */}
           <div className="mb-4 md:mb-0 text-center md:text-left">
             <h2 className="text-xl font-semibold">ShopCart</h2>
             <p className="text-sm">Making your dreams a reality</p>

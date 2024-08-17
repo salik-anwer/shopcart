@@ -34,6 +34,6 @@ export const WishListCard = ({product}: {product: Product}) => {
                   <Image src="/close.png" alt='close' height={12} width={12}/>
                 </button>
               </div>
-            </div>
-    );
-};
+         </div>
+        );
+      };

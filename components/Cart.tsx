@@ -1,20 +1,14 @@
 'use client'
-import { EmptyCart } from '@/components/EmptyCart';
+import { CartItem } from '@/context/AppContext';
 import { useAppContext } from '@/hooks/useAppContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import Confetti from 'react-confetti'
 
-const Cart = () => {
-  const { calculateTotalPrice, cart, products, removeProductFromCart, addProductToCart, clearCart } = useAppContext();
+const Cart = ({cartItems}:{cartItems: CartItem[]}) => {
+  const { calculateTotalPrice, products, removeProductFromCart, addProductToCart, clearCart } = useAppContext();
   const [explosionVisible, setExplosionVisible] = useState<boolean>(false);
-
-  if(!cart?.length) {
-    return (
-      <EmptyCart/>
-    );
-  }
 
   const handleCheckOut = () => {
     setExplosionVisible(true);
@@ -30,7 +24,7 @@ const Cart = () => {
         <h2 className="text-3xl font-bold mb-4">Your Cart</h2>
           <div className="flex justify-center">
             <div className="flex flex-col gap-2 w-full"> 
-              {cart.map((item) => {
+              {cartItems.map((item) => {
                 const product = products?.find(p => p.id === item.id);
                 if (!product) return null;
                 return (

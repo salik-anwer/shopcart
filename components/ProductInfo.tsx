@@ -1,20 +1,11 @@
 'use client'
-import { NotFound } from '@/components/NotFound';
-import { useAppContext } from '@/hooks/useAppContext';
 import Image from 'next/image';
 import React from 'react';
-import { Loader } from './Loader';
 import { CartButton } from './CartButton';
 import { WishListButton } from './WishListButton';
+import { Product } from '@/hooks/useFetchProducts';
 
-const ProductInfo = ({ id }: {id: number}) => {
-  const {loading, products } = useAppContext();
-
-  const product = products && products.find((product) => product.id == id);
-  
-  if (loading) return <Loader/>;
-
-  if(!product) return <NotFound/>;
+const ProductInfo = ({ product }: {product: Product}) => {
 
   return (
     <div className="container mt-10 mx-auto max-w-[50rem] p-4 flex flex-col gap-4 items-center md:flex-row md:items-start md:gap-8">
